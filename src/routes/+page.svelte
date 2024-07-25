@@ -1,16 +1,12 @@
-<!-- App.svelte
 <script>
-    import Footer from '../components/Footer.svelte';
-  </script>
+    import Hero from '../components/Hero.svelte';
+</script>
   
-  <style>
-    main {
-      padding: 1rem;
-    }
-  </style>
-  
-  <main>
+ <Hero
+  title="Welcome to Our Website!"
+  subtitle="We offer a variety of services to help you succeed."
+/>
     
-  </main>
   
-  <Footer email="camroman95@gmail.com" name="Cameron Roman" /> -->
+  
+  
