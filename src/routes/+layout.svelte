@@ -6,6 +6,6 @@
 </script>
 
 <Header />
-<!-- <slot></slot> -->
+<slot />
 <Footer email="camroman95@gmail.com" name="Cameron Roman" />
 
