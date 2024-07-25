@@ -7,5 +7,5 @@
 
 <Header />
 <!-- <slot></slot> -->
-<Footer />
+<Footer email="camroman95@gmail.com" name="Cameron Roman" />
 
