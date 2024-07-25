@@ -1,5 +1,16 @@
+<!-- App.svelte
 <script>
-    import Header from '../components/Header.svelte'
-</script>
-
-<Header />
+    import Footer from '../components/Footer.svelte';
+  </script>
+  
+  <style>
+    main {
+      padding: 1rem;
+    }
+  </style>
+  
+  <main>
+    
+  </main>
+  
+  <Footer email="camroman95@gmail.com" name="Cameron Roman" /> -->

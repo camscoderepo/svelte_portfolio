@@ -2,4 +2,3 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-body { @apply bg-surface-50-900-token; }
