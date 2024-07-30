@@ -6,6 +6,14 @@
   </script>
   
   <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    /* Hero Section */
     .hero {
       display: flex;
       flex-direction: column;
@@ -15,7 +23,8 @@
       text-align: center;
       background: linear-gradient(135deg, #6b5b95, #feb236);
       color: white;
-      min-height: 300px;
+      min-height: 100vh; /* Full viewport height */
+      width: 100%; /* Full width */
     }
   
     .hero-title {
@@ -42,6 +51,37 @@
     .hero-button:hover {
       background: #ffb447;
     }
+  
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+  
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+  
+      .hero-button {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.75rem;
+      }
+  
+      .hero-subtitle {
+        font-size: 0.875rem;
+      }
+  
+      .hero-button {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+      }
+    }
   </style>
   
   <div class="hero">
@@ -49,4 +89,5 @@
     <p class="hero-subtitle">{subtitle}</p>
     <a class="hero-button" href="{buttonUrl}">{buttonText}</a>
   </div>
+  
   
