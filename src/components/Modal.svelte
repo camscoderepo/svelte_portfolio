@@ -1,4 +1,5 @@
 <script>
+  import Button from './Button.svelte';
   export let isOpen = false;
   export let onClose = () => {};
   let name = '';
