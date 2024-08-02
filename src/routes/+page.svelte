@@ -1,4 +1,5 @@
 <script>
+	import AboutMe from '../components/AboutMe.svelte';
     import Hero from '../components/Hero.svelte';
     import Pricing from '../components/Pricing.svelte';
 </script>
@@ -7,9 +8,5 @@
   title="Welcome to Our Website!"
   subtitle="We offer a variety of services to help you succeed."
 />
-<Pricing />
-
-    
-  
-  
-  
+<AboutMe />
+<Pricing /> 

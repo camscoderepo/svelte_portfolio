@@ -23,5 +23,3 @@
     <p class="text-xl mb-4 md:text-lg sm:text-base">{subtitle}</p>
     <Button label="Hero Button" buttonText={heroBtnText} on:click={handleHeroButtonClick} buttonUrl={heroBtnUrl}></Button>
 </div>
-  
-
