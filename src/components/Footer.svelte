@@ -3,8 +3,8 @@
     import { faGithub } from '@fortawesome/free-brands-svg-icons';
     import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
   
-    export let email = 'your-email@example.com';
-    export let name = 'Your Name';
+    export let email = 'cameron.roman@icloud.com';
+    export let name = 'Cameron Roman';
   </script>
   
   <style>
@@ -31,7 +31,7 @@
     <div class="footer-content">
       <span>{name}</span>
       <a href="mailto:{email}">{email}</a>
-      <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/camscoderepo" target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faGithub} />
       </a>
     </div>

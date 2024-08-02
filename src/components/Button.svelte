@@ -3,12 +3,9 @@
     export let buttonUrl = "#";
 </script>
 
-
-
-
-<a class="btn btn-white" href="{buttonUrl}">
-    {buttonText}
-</a>
+<button class="btn btn-white" href="{buttonUrl}" on:click>
+    <slot>{buttonText}</slot>
+</button>
 
 <style>
     .btn-white {

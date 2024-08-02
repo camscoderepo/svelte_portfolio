@@ -1,7 +1,7 @@
 <script>
   import Button from './Button.svelte';
   export let isOpen = false;
-  export let onClose = () => {};
+  export let onClose;
   let name = '';
   let email = '';
   let message = '';
@@ -25,17 +25,14 @@
 </script>
 
 <style>
-  dialog {
-      border: none; /* Remove default border */
-      border-radius: 8px; /* Rounded corners */
-      padding: 0; /* Reset padding */
-      background-color: transparent; /* Transparent background for overlay */
-  }
-
   .modal-overlay {
       position: fixed;
       inset: 0;
       background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      display: flex;
+      justify-content: center;
+      align-items: center; /* Center modal vertically and horizontally */
+      z-index: 1000; /* Ensure it's on top */
   }
 
   .modal-content {
@@ -43,24 +40,24 @@
       border-radius: 8px; /* Rounded corners */
       padding: 16px; /* Padding inside the modal */
       max-width: 500px; /* Maximum width of the modal */
-      margin: auto; /* Center modal */
+      width: 100%; /* Make it responsive */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
   }
-  .close-button {
-        position: absolute;
-        top: 10px; /* Adjust the position as needed */
-        right: 10px; /* Adjust the position as needed */
-        background: none; /* Remove background */
-        border: none; /* Remove border */
-        font-size: 1.5rem; /* Adjust size */
-        cursor: pointer; /* Change cursor to pointer */
-    }
 
-  /* You can add additional styles for inputs, buttons, etc. */
+  .close-button {
+      position: absolute;
+      top: 10px; /* Adjust the position as needed */
+      right: 10px; /* Adjust the position as needed */
+      background: none; /* Remove background */
+      border: none; /* Remove border */
+      font-size: 1.5rem; /* Adjust size */
+      cursor: pointer; /* Change cursor to pointer */
+  }
 </style>
 
 {#if isOpen}
-    <dialog open class="modal-overlay">
-        <div class="modal-content">
+    <div class="modal-overlay" on:click={onClose}> <!-- Close modal on overlay click -->
+        <div class="modal-content" on:click|stopPropagation> <!-- Prevent click from closing modal -->
             <button class="close-button" on:click={onClose} aria-label="Close Modal">✖</button>
             <form on:submit|preventDefault={handleSubmit}>
                 <h2 class="text-2xl font-bold text-center">Contact Us</h2>
@@ -85,6 +82,5 @@
                 {/if}
             </form>
         </div>
-    </dialog>
+    </div>
 {/if}
-
