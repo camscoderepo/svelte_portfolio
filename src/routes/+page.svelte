@@ -9,9 +9,4 @@
   subtitle="We offer a variety of services to help you succeed."
 />
 <AboutMe />
-<Pricing />
-
-    
-  
-  
-  
+<Pricing /> 
