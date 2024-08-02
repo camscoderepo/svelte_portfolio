@@ -3,12 +3,12 @@
       {
         name: "Basic Plan",
         price: "$999",
-        features: ["Feature 1", "Feature 2", "Feature 3","Feature 4", "Feature 5", "Feature 6",  "Feature 7"],
+        features: ["Feature 1", "Feature 2", "Feature 3"],
       },
       {
         name: "Standard Plan",
         price: "$2499",
-        features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5", "Feature 6", "Feature 7"],
+        features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5"],
       },
       {
         name: "Premium Plan",
