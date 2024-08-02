@@ -14,4 +14,4 @@
 <slot />
 
 <!-- Footer with props -->
-<Footer email="camroman95@gmail.com" name="Cameron Roman" />
+<Footer email="cameron.roman@icloud.com" name="Cameron Roman" />
