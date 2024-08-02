@@ -16,10 +16,7 @@
     showModal = !showModal; // Toggles modal visibility
   };
 
-  const handleContactButtonClick = () => {
-        console.log('Contact button clicked');
-        showModal = true;
-    };
+
 </script>
 
 
