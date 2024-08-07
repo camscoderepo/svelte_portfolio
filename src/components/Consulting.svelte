@@ -1,4 +1,4 @@
-<section id="consulting" class="bg-gray-100 py-12">
+<section id="schedule" class="bg-gray-100 py-12">
     <div class="container mx-auto px-4">
       <!-- Section Title -->
       <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">Schedule a Consultation</h2>
