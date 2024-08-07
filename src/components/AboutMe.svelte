@@ -1,9 +1,9 @@
 <!-- AboutMe.svelte -->
 <script>
-    // You can import any necessary assets or variables here
+    import aboutImage from '../assets/AboutImage.jpg';
   </script>
   
-  <section class="about-me container mx-auto px-4 py-8">
+  <section id="about" class="about-me container mx-auto px-4 py-8">
     <div class="flex flex-col md:flex-row items-center">
       <div class="md:w-1/2 md:pr-8">
         <h2 class="text-3xl font-bold mb-4">About Me</h2>
@@ -12,7 +12,7 @@
         </p>
       </div>
       <div class="md:w-1/2 mb-6 md:mb-0">
-        <img src="" alt="weirdo" class="rounded-lg shadow-md w-full" />
+        <img src={aboutImage} alt="weirdo" class="rounded-lg shadow-md w-full" />
       </div>
     </div>
   </section>

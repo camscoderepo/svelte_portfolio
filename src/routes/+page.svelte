@@ -1,7 +1,7 @@
 <script>
 	import AboutMe from '../components/AboutMe.svelte';
+	import Consulting from '../components/Consulting.svelte';
     import Hero from '../components/Hero.svelte';
-    import Pricing from '../components/Pricing.svelte';
 </script>
   
  <Hero
@@ -9,4 +9,4 @@
   subtitle="We offer a variety of services to help you succeed."
 />
 <AboutMe />
-<Pricing /> 
+<Consulting /> 

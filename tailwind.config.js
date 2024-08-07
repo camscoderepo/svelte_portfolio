@@ -21,7 +21,7 @@ export default {
 	},
 	plugins: [
 		skeleton({
-			themes: { preset: [ "rocket" ] }
+			themes: { preset: [ "vintage" ] }
 		})
 	]
 }
