@@ -3,7 +3,7 @@
     import aboutImage from '../assets/AboutImage.jpg';
   </script>
   
-  <section class="about-me container mx-auto px-4 py-8">
+  <section id="about" class="about-me container mx-auto px-4 py-8">
     <div class="flex flex-col md:flex-row items-center">
       <div class="md:w-1/2 md:pr-8">
         <h2 class="text-3xl font-bold mb-4">About Me</h2>
