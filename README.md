@@ -1,92 +1,38 @@
-Project Title
+# create-svelte
 
-A brief title and description of your project.
-Table of Contents
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
-An optional section for easy navigation.
-Installation
+## Creating a project
 
-Step-by-step instructions on how to clone the repository and install dependencies.
-bash
-Copy code
-git clone [repository-url]
-cd [project-directory]
-npm install
-Building the Project
-
-Instructions on how to build the project.
-bash
-Copy code
-npm run build
-Running the Project
-
-How to start a development server or run the project locally.
-bash
-Copy code
-npm run dev
-Usage
-
-Any additional instructions on how to use the project, including any environment variables that need to be set.
-Contributing
-
-Guidelines for contributing to the project (if applicable).
-License
-
-Information about the project license.
-Example
-Here's a simple example of what your README might look like:
-
-markdown
-Copy code
-# Project Title
-
-A brief description of what your project does.
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Building the Project](#building-the-project)
-- [Running the Project](#running-the-project)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Installation
-
-Clone the repository and install the dependencies:
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-git clone [https://github.com/camscoderepo/svelte_portfolio]
-cd [src]
-npm install
-Running the Project
-To start the development server, run:
+# create a new project in the current directory
+npm create svelte@latest
 
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
-bash
-Copy code
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
 npm run dev
-Usage
-Provide any necessary usage instructions here.
-Building the Project
-To  the project, run:
 
-bash
-Copy code
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
 npm run build
+```
 
+You can preview the production build with `npm run preview`.
 
-
-
-Contributing
-If you'd like to contribute, please follow these guidelines...
-
-License
-This project is licensed under the MIT License.
-
-
-
-
-
-
-
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
