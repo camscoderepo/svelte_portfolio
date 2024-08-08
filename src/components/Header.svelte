@@ -1,5 +1,4 @@
 <script>
-    import { AppBar } from '@skeletonlabs/skeleton';
     import Modal from './Modal.svelte';
     import Button from './Button.svelte';
 
@@ -9,12 +8,16 @@
     
     let showModal = false;
 
+    const navItems = [
+      { id: 'home', text: 'Home'},
+      { id: 'about', text: 'About'},
+      { id: 'schedule', text: 'Schedule Appointment'}
+    ]
+
 
     const toggleModal = () => {
     showModal = !showModal; // Toggles modal visibility
   };
-
-
 </script>
 
 <nav class="bg-gray-800 p-4 fixed top-0 left-0 right-0">
@@ -22,9 +25,13 @@
     <div class="flex space-x-24"> <!-- Adjust space-x-8 as needed -->
       <div class="text-white">Your Logo</div>
       <ul class="flex space-x-4">
-        <li><a href="#home" class="text-white hover:underline">Home</a></li>
-        <li><a href="#about" class="text-white hover:underline">About Me</a></li>
-        <li><a href="#schedule" class="text-white hover:underline">Schedule an appointment</a></li>
+        {#each navItems as item}
+        <li>
+          <a href={`#${item.id}`} data-id={item.id} class="text-white hover:underline">
+            {item.text}
+          </a>
+        </li>
+      {/each}
       </ul>
     </div>
     <Button on:click={toggleModal} buttonText={contactBtnText} class="text-white bg-blue-500 px-4 py-2 rounded"/>
