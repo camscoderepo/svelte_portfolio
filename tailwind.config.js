@@ -17,7 +17,12 @@ export default {
 		)
 	],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				sans: ['Open Sans', 'system-ui', 'sans-serif'],
+				serif: ['Georgia', 'serif'],
+			}
+				},
 	},
 	plugins: [
 		skeleton({
