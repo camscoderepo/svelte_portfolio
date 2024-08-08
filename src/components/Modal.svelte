@@ -7,6 +7,7 @@
     let isSubmitting = false;
     let formStatus = '';
     let modalRef;
+    import Button from '../components/Button.svelte';
   
     const handleSubmit = async () => {
         isSubmitting = true;
@@ -82,7 +83,6 @@
     on:keydown={handleKeydown}
   >
     <div class="modal-content">
-      <button class="close-button" on:click={onClose} aria-label="Close Modal">✖</button>
       <form on:submit|preventDefault={handleSubmit}>
         <h2 class="text-2xl font-bold text-center">Contact Us</h2>
                 <label for="name" class="block text-left">Name</label>
@@ -94,10 +94,10 @@
                 <label for="message" class="block text-left">Message</label>
                 <textarea id="message" bind:value={message} placeholder="Your Message" class="border border-gray-300 rounded p-2 w-full" required style="min-height: 100px;"></textarea>
                 
-                <button type="submit" class="button-primary mt-4 w-full" disabled={isSubmitting}>
+                <Button type="submit" class="button-primary mt-4 w-full" disabled={isSubmitting}>
                     {#if isSubmitting}Submitting...{/if}
                     {#if !isSubmitting}Send Message{/if}
-                </button>
+                </Button>
         {#if formStatus}
           <div class={`form-status mt-4 text-center ${formStatus.includes('Error') ? 'text-red-500' : 'text-green-500'}`}>
             {formStatus}
