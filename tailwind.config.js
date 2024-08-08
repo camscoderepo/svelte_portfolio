@@ -21,7 +21,13 @@ export default {
 			fontFamily: {
 				sans: ['Open Sans', 'system-ui', 'sans-serif'],
 				serif: ['Georgia', 'serif'],
-			}
+			},
+			screens: {
+                'tablet': '640px',
+                'laptop': '1024px',
+                'desktop': '1280px',
+                'ultrawide': '2560px', // Custom breakpoint for ultrawide screens
+            }
 				},
 	},
 	plugins: [

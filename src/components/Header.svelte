@@ -4,36 +4,35 @@
   import Button from './Button.svelte';
   import Device from 'svelte-device-info';
  
-
-  const contactBtnText = 'Contact';
+  const modalBtnText = 'Contact Us';
   let showModal = false;
-  let isNavOpen = false; // New variable to control nav visibility
+  let isNavOpen = false;
 
   const navItems = [
-    { id: 'home', text: 'Home'},
-    { id: 'about', text: 'About'},
-    { id: 'schedule', text: 'Schedule Appointment'}
+    { id: 'home', text: 'Home' },
+    { id: 'about', text: 'About' },
+    { id: 'schedule', text: 'Schedule Appointment' }
   ];
 
   const toggleModal = () => {
-      showModal = !showModal; // Toggles modal visibility
+    showModal = !showModal;
   };
 
   const toggleNav = () => {
-      isNavOpen = !isNavOpen;
-      console.log("isNavOpen:", isNavOpen); // Toggle nav visibility
+    isNavOpen = !isNavOpen;
   };
 
   let isMobile = false;
   onMount(() => {
-    isMobile = Device.isMobile; // Directly assign the value
+    isMobile = Device.isMobile;
   });
 </script>
 
-
 <nav class="bg-gray-800 p-4 fixed top-0 left-0 right-0">
   <div class="container mx-auto flex justify-between items-center">
-    <div class="text-white">Your Logo</div>
+    <div class="text-white">Cameron Roman</div>
+    
+    <!-- Desktop Navigation -->
     <div class="hidden md:flex space-x-4">
       {#each navItems as item}
         <a href={`#${item.id}`} data-id={item.id} class="text-white hover:underline">
@@ -41,40 +40,49 @@
         </a>
       {/each}
     </div>
-    <div class="md:hidden">
-      <button on:click={toggleNav} class="text-white">
-        {#if isNavOpen}
-          Close
-        {:else}
-          Menu
-        {/if}
-      </button>
-    </div>
-    <Button on:click={toggleModal} buttonText={contactBtnText} class="text-white bg-blue-500 px-4 py-2 rounded"/>
-    <Modal isOpen={showModal} onClose={toggleModal} />
+
+    <Button on:click={toggleModal} buttonText={modalBtnText} class="text-white"/>
+
+    <!-- Mobile Navigation Button -->
+     {#if isNavOpen && isMobile}
+      <Button on:click={toggleNav} class="menu show md:hidden text-white">
+        <i class="fas fa-bars"></i>
+      </Button>
+    {/if}
   </div>
+
+  <!-- Mobile Navigation Menu -->
   {#if isNavOpen && isMobile}
-    <div class="md:hidden">
-      <ul class="flex flex-col space-y-2">
-        {#each navItems as item}
-          <li>
-            <a href={`#${item.id}`} data-id={item.id} class="text-white hover:underline block">
-              {item.text}
-            </a>
-          </li>
-        {/each}
-      </ul>
-    </div>
+    <ul class="nav-items show md:hidden space-y-2">
+      {#each navItems as item}
+        <li><a href={`#${item.id}`} class="text-white hover:underline">{item.text}</a></li>
+      {/each}
+    </ul>
   {/if}
+
+  <Modal isOpen={showModal} onClose={toggleModal} />
 </nav>
 
-
-
-
 <style>
- nav ul {
+  nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+  }
+
+  .menu {
+    display:none;
+  }
+
+  .menu.show {
+    display: block;
+  }
+
+  .nav-items {
+    display: none;
+  }
+
+  .nav-items.show {
+    display: block;
   }
 </style>
