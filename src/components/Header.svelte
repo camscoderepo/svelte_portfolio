@@ -44,8 +44,8 @@
     <Button on:click={toggleModal} buttonText={modalBtnText} class="text-white"/>
 
     <!-- Mobile Navigation Button -->
-     {#if isNavOpen && isMobile}
-      <Button on:click={toggleNav} class="menu show md:hidden text-white">
+     {#if isMobile}
+      <Button on:click={toggleNav} class="nav-items show md:hidden text-white">
         <i class="fas fa-bars"></i>
       </Button>
     {/if}
@@ -70,13 +70,6 @@
     padding: 0;
   }
 
-  .menu {
-    display:none;
-  }
-
-  .menu.show {
-    display: block;
-  }
 
   .nav-items {
     display: none;
