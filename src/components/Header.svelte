@@ -25,6 +25,7 @@
   let isMobile = false;
   onMount(() => {
     isMobile = Device.isMobile;
+    
   });
 </script>
 

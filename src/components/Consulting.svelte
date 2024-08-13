@@ -15,9 +15,10 @@
           <iframe src="https://calendly.com/cameron-roman/30min?embed_domain=yourdomain.com&embed_type=inline" 
                   title="Schedule a 30 minute call with Cameron!"
                   width="100%" 
-                  height="600" 
+                  height="800" 
                   frameborder="0" 
-                  class="rounded-lg shadow-lg">
+                  class="rounded-lg shadow-lg custom-margin">
+                  
           </iframe>
         </div>
       </div>
@@ -42,3 +43,17 @@
     </div> -->
   </section>
   
+  <style>
+    @media (max-width: 1024px) and (min-width: 769px) {
+    iframe{
+      height: 800px;
+    }
+  }
+    @media (max-width: 768px) {
+      iframe {
+        height: 780px; /* Increase this value as needed to fit the content */
+      }
+  }
+
+  
+  </style>

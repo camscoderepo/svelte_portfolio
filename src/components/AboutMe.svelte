@@ -12,7 +12,7 @@
         </p>
       </div>
       <div class="md:w-1/2 mb-6 md:mb-0">
-        <img src={aboutImage} alt="weirdo" class="rounded-lg shadow-md w-full" />
+        <img src={aboutImage} alt="weirdo" class="rounded-lg shadow-md w-full h-1/2" />
       </div>
     </div>
   </section>

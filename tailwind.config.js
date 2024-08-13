@@ -32,7 +32,7 @@ export default {
 	},
 	plugins: [
 		skeleton({
-			themes: { preset: [ "vintage" ] }
+			themes: { preset: [ "crimson" ] }
 		})
 	]
 }
