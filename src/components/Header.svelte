@@ -7,7 +7,11 @@
   const modalBtnText = 'Contact Us';
   let showModal = false;
   let isNavOpen = false;
+  let showContactButton; // Adjust the width as needed
 
+
+  
+  
   const navItems = [
     { id: 'home', text: 'Home' },
     { id: 'about', text: 'About' },
@@ -25,8 +29,23 @@
   let isMobile = false;
   onMount(() => {
     isMobile = Device.isMobile;
-    
+    const handleResize = () => {
+      showContactButton = window.innerWidth >= 768;
+    };
+    handleResize();
+
+        // Add the resize event listener
+    window.addEventListener('resize', handleResize);
+
+        // Cleanup the event listener on component destruction
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   });
+
+   // Call handleResize on component mount to set the initial value
+   onMount(() => handleResize());
+   
 </script>
 
 <nav class="bg-gray-800 p-4 fixed top-0 left-0 right-0">
@@ -36,9 +55,11 @@
     <!-- Desktop Navigation -->
     <div class="hidden md:flex space-x-4">
       {#each navItems as item}
-        <a href={`#${item.id}`} data-id={item.id} class="text-white hover:underline">
-          {item.text}
-        </a>
+        {#if showContactButton}
+          <a href={`#${item.id}`} data-id={item.id} class="text-white hover:underline">
+            {item.text}
+          </a>
+        {/if}
       {/each}
     </div>
 
