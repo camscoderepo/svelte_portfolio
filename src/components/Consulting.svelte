@@ -21,11 +21,7 @@
                   
           </iframe>
         </div>
-      </div>
-      
-      <!-- Contact Us Button -->
-     
-      
+      </div>      
       <!-- Testimonials -->
       <!-- <div class="text-center">
         <h3 class="text-2xl font-semibold text-gray-900 mb-4">What Clients Are Saying</h3>
@@ -42,7 +38,6 @@
       </div>
     </div> -->
   </section>
-  
   <style>
     @media (max-width: 1024px) and (min-width: 769px) {
     iframe{
@@ -54,6 +49,4 @@
         height: 780px; /* Increase this value as needed to fit the content */
       }
   }
-
-  
   </style>
