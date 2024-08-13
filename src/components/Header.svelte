@@ -45,6 +45,7 @@
 
    // Call handleResize on component mount to set the initial value
    onMount(() => handleResize());
+   
 </script>
 
 <nav class="bg-gray-800 p-4 fixed top-0 left-0 right-0">
