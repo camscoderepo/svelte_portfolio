@@ -1,10 +1,11 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import { qrcode } from 'vite-plugin-qrcode';
 
 export default defineConfig({
-	server: {
-        host: true
-      },
-	plugins: [sveltekit()]
+	plugins: [
+    sveltekit(),
+    qrcode() //only applies in dev mode
+  ]
 });
 
