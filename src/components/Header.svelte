@@ -4,7 +4,7 @@
   import Button from './Button.svelte';
   import Device from 'svelte-device-info';
 
-  const modalBtnText = 'Contact Us';
+  const modalBtnText = 'Contact Me';
   let showModal = false;
   let isNavOpen = false;
   let showContactButton;

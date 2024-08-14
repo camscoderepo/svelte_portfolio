@@ -7,8 +7,6 @@
     let isSubmitting = false;
     let formStatus = '';
     let modalRef;
-    import Button from '../components/Button.svelte';
-  
     const handleSubmit = async () => {
         isSubmitting = true;
         formStatus = '';
@@ -84,20 +82,20 @@
   >
     <div class="modal-content">
       <form on:submit|preventDefault={handleSubmit}>
-        <h2 class="text-2xl font-bold text-center">Contact Us</h2>
-                <label for="name" class="block text-left">Name</label>
+        <h2 class="text-2xl font-bold text-center">Contact me</h2>
+                <label for="name" class="block text-center">Name</label>
                 <input type="text" bind:value={name} placeholder="Your Name" class="border border-gray-300 rounded p-2 w-full" required />
                 
-                <label for="email" class="block text-left">Email</label>
+                <label for="email" class="block text-center">Email</label>
                 <input type="email" id="email" bind:value={email} placeholder="Your Email" class="border border-gray-300 rounded p-2 w-full" required />
                 
-                <label for="message" class="block text-left">Message</label>
+                <label for="message" class="block text-center">Message</label>
                 <textarea id="message" bind:value={message} placeholder="Your Message" class="border border-gray-300 rounded p-2 w-full" required style="min-height: 100px;"></textarea>
                 
-                <Button type="submit" class="button-primary mt-4 w-full" disabled={isSubmitting}>
+                <button type="submit" class="button-primary mt-4 w-full text-center" disabled={isSubmitting}>
                     {#if isSubmitting}Submitting...{/if}
                     {#if !isSubmitting}Send Message{/if}
-                </Button>
+                </button>
         {#if formStatus}
           <div class={`form-status mt-4 text-center ${formStatus.includes('Error') ? 'text-red-500' : 'text-green-500'}`}>
             {formStatus}
