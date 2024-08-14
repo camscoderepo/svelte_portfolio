@@ -13,10 +13,10 @@
       };
 
    
-    const heroBtnText = 'Learn more';
+    const heroBtnText = 'Resume';
 
-    export let title = "Welcome to Our Website!";
-    export let subtitle = "We offer a variety of services to help you succeed.";
+    export let title = "Welcome to my Website!";
+    export let subtitle = "I offer a variety of services to take your project to the next level!";
     
 </script>
 
