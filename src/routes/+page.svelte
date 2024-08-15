@@ -15,8 +15,6 @@
 <div>
   {#if currentPage === 'home' || currentPage === 'about' || currentPage === 'schedule'}
       <Hero 
-          title="Welcome to Our Website!" 
-          subtitle="We offer a variety of services to help you succeed." 
           on:navigate={handleNavigation} 
       />
       <AboutMe on:navigate={handleNavigation} />
