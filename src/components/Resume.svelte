@@ -13,29 +13,58 @@
 
 <div class="flex flex-col items-center justify-center min-h-screen">
     <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-        <h1 class="text-4xl font-bold mb-6 text-center">Resume Component</h1>
+        <h1 class="text-4xl font-bold mb-6 text-center">Resume</h1>
         
         <!-- Contact Information -->
         <section class="mb-6">
             <h2 class="text-2xl font-semibold">Contact Information</h2>
             <ul>
-                <li>Email: <a href="mailto:your-email@example.com" class="text-blue-600 hover:underline">your-email@example.com</a></li>
-                <li>Phone: (123) 456-7890</li>
-                <li>LinkedIn: <a href="https://linkedin.com/in/your-profile" class="text-blue-600 hover:underline">linkedin.com/in/your-profile</a></li>
+                <li>Email: <a href="mailto:cameron.roman@icloud.com" class="text-blue-600 hover:underline">cameron.roman@icloud.com</a></li>
+                <li>LinkedIn: <a href="https://linkedin.com/in/cameron-roman-653865183" class="text-blue-600 hover:underline">linkedin.com/my-linkedin</a></li>
             </ul>
         </section>
         
         <!-- Summary -->
         <section class="mb-6">
-            <h2 class="text-2xl font-semibold">Summary</h2>
-            <p>A brief summary of your qualifications, experience, and career goals.</p>
+            <h2 class="text-2xl font-semibold text-center">Summary</h2>
+            <p>
+                Dynamic software engineering professional with mid-level expertise in Web Development, Back End Development, and JavaScript. 
+                Demonstrated success in managing and delivering complex technical projects, driving the development and implementation of diverse websites and business applications. 
+                Skilled in creating bespoke software solutions to meet client-specific needs and enhance operational efficiency. 
+            </p>
         </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-semibold text-center mb-4">Skills</h2>
+            <div class="grid grid-cols-4 gap-4">
+                <div class="text-center">JavaScript</div>
+                <div class="text-center">React</div>
+                <div class="text-center">SQL</div>
+                <div class="text-center">Svelte</div>
+                <div class="text-center">HTML</div>
+                <div class="text-center">CSS</div>
+                <div class="text-center">Node.js</div>
+                <div class="text-center">GraphQL</div>
+                <div class="text-center">Git</div>
+                <div class="text-center">Docker</div>
+                <div class="text-center">TypeScript</div>
+                <div class="text-center">Redux</div>
+                <div class="text-center">Tailwind CSS</div>
+                <div class="text-center">Express</div>
+                <div class="text-center">MongoDB</div>
+                <div class="text-center">Python</div>
+            </div>
+        </section>
+        
         
         <!-- Experience -->
         <section class="mb-6">
             <h2 class="text-2xl font-semibold">Experience</h2>
             <ul class="list-disc ml-5">
-                <!-- Experience items -->
+               <h2 class="text-pink-300 font-bold ">PurritoCoin, Denver - Owner/Software Developer</h2>
+               <li></li>
+               <li></li>
+               <li></li>
             </ul>
         </section>
         
