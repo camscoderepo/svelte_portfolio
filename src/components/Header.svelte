@@ -7,7 +7,6 @@
   const modalBtnText = 'Contact Me';
   let showModal = false;
   let isNavOpen = false;
-  let showContactButton;
   let isMobile = false;
 
   const navItems = [
@@ -26,17 +25,6 @@
 
   onMount(() => {
     isMobile = Device.isMobile;
-
-    const handleResize = () => {
-      showContactButton = window.innerWidth >= 768;
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
   });
 
   // You don't need to call handleResize in a second onMount since it's already called above.
@@ -50,15 +38,13 @@
     <!-- Desktop Navigation -->
     <!-- <div class="hidden md:flex space-x-4">
       {#each navItems as item}
-        {#if showContactButton}
           <a href={`#${item.id}`} data-id={item.id} class="text-white hover:underline">
             {item.text}
           </a>
-        {/if}
       {/each}
     </div> -->
 
-    <Button on:click={toggleModal} buttonText={modalBtnText} class="text-white"/>
+    <Button className="bg-white text-black py-2 px-4 rounded" on:click={toggleModal} buttonText={modalBtnText} />
 
     <!-- Mobile Navigation Button -->
      <!-- {#if isMobile}

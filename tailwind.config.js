@@ -18,6 +18,12 @@ export default {
 	],
 	theme: {
 		extend: {
+			colors: {
+				primary: 'var(--color-primary)',
+				secondary: 'var(--color-secondary)',
+				background: 'var(--color-background)',
+				text: 'var(--color-text)',
+			  },
 			fontFamily: {
 				sans: ['Open Sans', 'system-ui', 'sans-serif'],
 				serif: ['Georgia', 'serif'],
@@ -32,7 +38,7 @@ export default {
 	},
 	plugins: [
 		skeleton({
-			themes: { preset: [ "crimson" ] }
+			themes: { preset: [ "skeleton" ] }
 		})
 	]
 }
