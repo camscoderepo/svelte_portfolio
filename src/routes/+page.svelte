@@ -13,7 +13,7 @@
 </script>
 
 <div>
-  {#if currentPage === 'home' || currentPage === 'about' || currentPage === 'schedule'}
+  {#if currentPage === 'home'}
       <Hero 
           on:navigate={handleNavigation} 
       />

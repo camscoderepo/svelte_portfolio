@@ -7,7 +7,7 @@
   <div class="flex flex-col items-center text-center">
     <div class="relative w-full mb-24">
       <!-- Image positioned on top of the text -->
-      <img src={aboutImage} alt="weirdo" class="rounded-full shadow-md w-32 h-32 mx-auto absolute -top-12 left-1/2 transform -translate-x-1/2 z-10 mb-4" /> <!-- Added mb-4 -->
+      <img src={aboutImage} alt="" class="rounded-full shadow-md w-32 h-32 mx-auto absolute -top-12 left-1/2 transform -translate-x-1/2 z-10 mb-4" /> <!-- Added mb-4 -->
     </div>
     <div class="w-full">
       <h2 class="text-3xl font-bold mb-4">About Me</h2>
