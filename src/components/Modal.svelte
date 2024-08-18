@@ -1,4 +1,6 @@
 <script>
+	import Button from "./Button.svelte";
+
     export let isOpen = false;
     export let onClose;
     let name = '';
@@ -92,10 +94,10 @@
                 <label for="message" class="block text-center">Message</label>
                 <textarea id="message" bind:value={message} placeholder="Your Message" class="border border-gray-300 rounded p-2 w-full" required style="min-height: 100px;"></textarea>
                 
-                <button type="submit" class="button-primary mt-4 w-full text-center" disabled={isSubmitting}>
+                <Button type="submit" className="button-primary mt-4 w-full text-center" disabled={isSubmitting}>
                     {#if isSubmitting}Submitting...{/if}
                     {#if !isSubmitting}Send Message{/if}
-                </button>
+                </Button>
         {#if formStatus}
           <div class={`form-status mt-4 text-center ${formStatus.includes('Error') ? 'text-red-500' : 'text-green-500'}`}>
             {formStatus}
