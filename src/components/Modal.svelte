@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import Button from "./Button.svelte";
 
     export let isOpen = false;
@@ -52,12 +52,23 @@
   }
     
     .modal-content {
-        background-color: white; /* White background for content */
-        border-radius: 8px; /* Rounded corners */
-        padding: 16px; /* Padding inside the modal */
-        max-width: 500px; /* Maximum width of the modal */
-        width: 100%; /* Make it responsive */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+      /* Ensure the modal content is properly centered */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 8px; /* Adjust as needed */
+      background-color: #f9f9f9; /* Adjust to match your design */
+    }
+    
+    .modal-content button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px; /* Ensure rounded corners */
+      padding: 10px 20px; /* Adjust as needed */
+      box-shadow: none; /* Remove box-shadow if it feels out of place */
     }
 
     .close-button {
@@ -93,11 +104,13 @@
                 
                 <label for="message" class="block text-center">Message</label>
                 <textarea id="message" bind:value={message} placeholder="Your Message" class="border border-gray-300 rounded p-2 w-full" required style="min-height: 100px;"></textarea>
-                
-                <Button type="submit" className="button-primary mt-4 w-full text-center" disabled={isSubmitting}>
+                <div class="modal-content">
+                  <Button variant="modal" type="submit" className="button-primary mt-4 w-full text-center" disabled={isSubmitting}>
                     {#if isSubmitting}Submitting...{/if}
                     {#if !isSubmitting}Send Message{/if}
-                </Button>
+                  </Button>
+                </div>
+               
         {#if formStatus}
           <div class={`form-status mt-4 text-center ${formStatus.includes('Error') ? 'text-red-500' : 'text-green-500'}`}>
             {formStatus}
@@ -106,4 +119,4 @@
       </form>
     </div>
   </div>
-{/if}
+{/if} -->
