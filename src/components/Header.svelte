@@ -1,50 +1,62 @@
 <script>
   import { onMount } from 'svelte';
-  import Modal from './Modal.svelte';
   import Button from './Button.svelte';
   import Device from 'svelte-device-info';
+  import { createEventDispatcher } from 'svelte';
+  import { Modal ,getModalStore, initializeStores } from '@skeletonlabs/skeleton';
+
+// Initialize stores
+	initializeStores();
+
+	const modalStore = getModalStore();
+	let showModal = false;
+
+	function closeModal() {
+	showModal = false;
+	}
+
+	// Ensure modal is triggered correctly
+	function triggerModal() {
+	const modalSettings = {
+		type: 'confirm',
+		title: 'Test Modal',
+		body: 'This is a test.',
+		response: (r) => console.log('response:', r),
+	};
+	modalStore.trigger(modalSettings);
+	}
+
+  // const toggleNav = () => {
+  //   isNavOpen = !isNavOpen;
+  // };
+
+  function handleButtonClick() {
+    dispatch('openModal');
+  }
+
+  onMount(() => {
+    isMobile = Device.isMobile;
+    console.log('Is mobile:', isMobile); // Debugging: check device type
+  });
 
   const modalBtnText = 'Contact Me';
-  let showModal = false;
-  let isNavOpen = false;
-  let isMobile = false;
 
   const navItems = [
     { id: 'home', text: 'Home' },
     { id: 'about', text: 'About' },
     { id: 'schedule', text: 'Schedule Appointment' }
   ];
-
-  const toggleModal = () => {
-    showModal = !showModal;
-  };
-
-  const toggleNav = () => {
-    isNavOpen = !isNavOpen;
-  };
-
-  onMount(() => {
-    isMobile = Device.isMobile;
-  });
-
-  // You don't need to call handleResize in a second onMount since it's already called above.
 </script>
-
 
 <nav class="bg-gray-800 p-4 z-20 fixed top-0 left-0 right-0">
   <div class="container mx-auto flex justify-between items-center">
     <div class="text-white">Cameron Roman</div>
-    
-    <!-- Desktop Navigation -->
-    <!-- <div class="hidden md:flex space-x-4">
-      {#each navItems as item}
-          <a href={`#${item.id}`} data-id={item.id} class="text-white hover:underline">
-            {item.text}
-          </a>
-      {/each}
-    </div> -->
 
-    <Button className="bg-white text-black py-2 px-4 rounded" on:click={toggleModal} buttonText={modalBtnText} />
+    <Button className="bg-white text-black py-2 px-4 rounded" on:click={triggerModal} buttonText={modalBtnText} />
+    <Modal isOpen={showModal} onClose={closeModal}>
+      <p>Simple modal content.</p>
+    </Modal>
+    
 
     <!-- Mobile Navigation Button -->
      <!-- {#if isMobile}
@@ -62,23 +74,9 @@
       {/each}
     </ul>
   {/if} -->
-
-  <Modal isOpen={showModal} onClose={toggleModal} />
 </nav>
 
 <style>
-  /* nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
 
-
-  .nav-items {
-    display: none;
-  }
-
-  .nav-items.show {
-    display: block;
-  } */
+  /* Optional: Style adjustments for nav if needed */
 </style>
