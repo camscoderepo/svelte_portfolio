@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { getModalStore, initializeStores, ModalComponent, ModalSettings } from '@skeletonlabs/skeleton';
+  import { getModalStore, initializeStores } from '@skeletonlabs/skeleton';
   import Modal from './Modal.svelte'; // Import the custom modal component
   import Device from 'svelte-device-info'; // If needed for mobile check\
   import Button from './Button.svelte';
