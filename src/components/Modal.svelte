@@ -1,122 +1,59 @@
-<!-- <script>
-	import Button from "./Button.svelte";
+<script lang="ts">
+	import type { SvelteComponent } from 'svelte';
 
-    export let isOpen = false;
-    export let onClose;
-    let name = '';
-    let email = '';
-    let message = '';
-    let isSubmitting = false;
-    let formStatus = '';
-    let modalRef;
-    const handleSubmit = async () => {
-        isSubmitting = true;
-        formStatus = '';
+	// Stores
+	import { getModalStore } from '@skeletonlabs/skeleton';
 
-        try {
-            // Simulate form submission
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            formStatus = 'Message sent successfully!';
-        } catch (error) {
-            formStatus = 'Error sending message. Please try again.';
-        } finally {
-            isSubmitting = false;
-        }
-    };
-  
-    function handleKeydown(event) {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    }
-  
-    $: if (isOpen && modalRef) {
-      modalRef.focus();
-    }
-    function handleOverlayClick(event) {
-    if (event.target === event.currentTarget) {
-      onClose();
-    }
-  }
-  </script>
-  
-  <style>
-    .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-        display: flex;
-        justify-content: center;
-        align-items: center; /* Center modal vertically and horizontally */
-        z-index: 1000; /* Ensure it's on top */
-  }
-    
-    .modal-content {
-      /* Ensure the modal content is properly centered */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      border-radius: 8px; /* Adjust as needed */
-      background-color: #f9f9f9; /* Adjust to match your design */
-    }
-    
-    .modal-content button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px; /* Ensure rounded corners */
-      padding: 10px 20px; /* Adjust as needed */
-      box-shadow: none; /* Remove box-shadow if it feels out of place */
-    }
+	// Props
+	/** Exposes parent props to this component. */
+	export let parent: SvelteComponent;
 
-    .close-button {
-        position: absolute;
-        top: 10px; /* Adjust the position as needed */
-        right: 10px; /* Adjust the position as needed */
-        background: none; /* Remove background */
-        border: none; /* Remove border */
-        font-size: 1.5rem; /* Adjust size */
-        cursor: pointer; /* Change cursor to pointer */
-    }
-  </style>
-  
-  {#if isOpen}
-  <div 
-    bind:this={modalRef}
-    on:click={handleOverlayClick}
-    role="presentation"
-    class="modal-overlay"
-    aria-labelledby="dialog-title"
-    aria-describedby="dialog-description"
-    tabindex="-1"
-    on:keydown={handleKeydown}
-  >
-    <div class="modal-content">
-      <form on:submit|preventDefault={handleSubmit}>
-        <h2 class="text-2xl font-bold text-center">Contact me</h2>
-                <label for="name" class="block text-center">Name</label>
-                <input type="text" bind:value={name} placeholder="Your Name" class="border border-gray-300 rounded p-2 w-full" required />
-                
-                <label for="email" class="block text-center">Email</label>
-                <input type="email" id="email" bind:value={email} placeholder="Your Email" class="border border-gray-300 rounded p-2 w-full" required />
-                
-                <label for="message" class="block text-center">Message</label>
-                <textarea id="message" bind:value={message} placeholder="Your Message" class="border border-gray-300 rounded p-2 w-full" required style="min-height: 100px;"></textarea>
-                <div class="modal-content">
-                  <Button variant="modal" type="submit" className="button-primary mt-4 w-full text-center" disabled={isSubmitting}>
-                    {#if isSubmitting}Submitting...{/if}
-                    {#if !isSubmitting}Send Message{/if}
-                  </Button>
-                </div>
-               
-        {#if formStatus}
-          <div class={`form-status mt-4 text-center ${formStatus.includes('Error') ? 'text-red-500' : 'text-green-500'}`}>
-            {formStatus}
-          </div>
-        {/if}
-      </form>
-    </div>
-  </div>
-{/if} -->
+	const modalStore = getModalStore();
+
+	// Form Data
+	const formData = {
+		name: 'Jane Doe',
+		tel: '214-555-1234',
+		email: 'jdoe@email.com'
+	};
+
+	// We've created a custom submit function to pass the response and close the modal.
+	function onFormSubmit(): void {
+		if ($modalStore[0].response) $modalStore[0].response(formData);
+		modalStore.close();
+	}
+
+	// Base Classes
+	const cBase = 'card p-4 w-modal shadow-xl space-y-4';
+	const cHeader = 'text-2xl font-bold';
+	const cForm = 'border border-surface-500 p-4 space-y-4 rounded-container-token';
+</script>
+
+<!-- @component This example creates a simple form modal. -->
+
+{#if $modalStore[0]}
+	<div class="modal-example-form {cBase}">
+		<header class={cHeader}>{$modalStore[0].title ?? '(title missing)'}</header>
+		<article>{$modalStore[0].body ?? '(body missing)'}</article>
+		<!-- Enable for debugging: -->
+		<form class="modal-form {cForm}">
+			<label class="label">
+				<span>Name</span>
+				<input class="input" type="text" bind:value={formData.name} placeholder="Enter name..." />
+			</label>
+			<label class="label">
+				<span>Phone Number</span>
+				<input class="input" type="tel" bind:value={formData.tel} placeholder="Enter phone..." />
+			</label>
+			<label class="label">
+				<span>Email</span>
+				<input class="input" type="email" bind:value={formData.email} placeholder="Enter email address..." />
+			</label>
+		</form>
+		<!-- prettier-ignore -->
+		<footer class="modal-footer {parent.regionFooter}">
+			<button class="btn {parent.buttonNeutral}" on:click={parent.onClose}>{parent.buttonTextCancel}</button>
+			<button class="btn {parent.buttonPositive}" on:click={onFormSubmit}>{parent.buttonTextSubmit}</button>
+		</footer>
+	</div>
+{/if}
