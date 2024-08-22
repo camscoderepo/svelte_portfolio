@@ -1,61 +1,54 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
+  import { getModalStore, initializeStores, ModalComponent, ModalSettings } from '@skeletonlabs/skeleton';
+  import Modal from './Modal.svelte'; // Import the custom modal component
+  import Device from 'svelte-device-info'; // If needed for mobile check\
   import Button from './Button.svelte';
-  import Device from 'svelte-device-info';
-  import { createEventDispatcher } from 'svelte';
-  import { Modal ,getModalStore, initializeStores } from '@skeletonlabs/skeleton';
+  // Initialize modal store
+  initializeStores();
+  const modalStore = getModalStore();
 
-// Initialize stores
-	initializeStores();
-
-	const modalStore = getModalStore();
-	let showModal = false;
-
-	function closeModal() {
-	showModal = false;
-	}
-
-	// Ensure modal is triggered correctly
-	function triggerModal() {
-	const modalSettings = {
-		type: 'confirm',
-		title: 'Test Modal',
-		body: 'This is a test.',
-		response: (r) => console.log('response:', r),
-	};
-	modalStore.trigger(modalSettings);
-	}
-
-  // const toggleNav = () => {
-  //   isNavOpen = !isNavOpen;
-  // };
-
-  function handleButtonClick() {
-    dispatch('openModal');
+  // Defining the ModalComponent type locally
+  interface ModalComponent {
+    ref: typeof Modal;
   }
+  interface ModalSettings {
+    type: 'component';
+    component: ModalComponent;
+  }
+
+  const modalComponent: ModalComponent = { ref: Modal };
+
+  const modal: ModalSettings = {
+    type: 'component',
+    component: modalComponent,
+  };
+
+  function openModal() {
+    modalStore.trigger(modal);
+  }
+
+  let isMobile: boolean = false;
 
   onMount(() => {
     isMobile = Device.isMobile;
-    console.log('Is mobile:', isMobile); // Debugging: check device type
+    console.log('Is mobile:', isMobile); // Optional: check device type
   });
 
   const modalBtnText = 'Contact Me';
-
-  const navItems = [
+  const navItems: { id: string; text: string }[] = [
     { id: 'home', text: 'Home' },
     { id: 'about', text: 'About' },
     { id: 'schedule', text: 'Schedule Appointment' }
   ];
 </script>
 
+
 <nav class="bg-gray-800 p-4 z-20 fixed top-0 left-0 right-0">
   <div class="container mx-auto flex justify-between items-center">
     <div class="text-white">Cameron Roman</div>
 
-    <Button className="bg-white text-black py-2 px-4 rounded" on:click={triggerModal} buttonText={modalBtnText} />
-    <Modal isOpen={showModal} onClose={closeModal}>
-      <p>Simple modal content.</p>
-    </Modal>
+    <Button  onClick={openModal} buttonText={modalBtnText} />
     
 
     <!-- Mobile Navigation Button -->
