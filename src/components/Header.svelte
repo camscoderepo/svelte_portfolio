@@ -1,46 +1,59 @@
-<script lang="ts">
+<script>
   import { onMount } from 'svelte';
-  import { getModalStore, initializeStores } from '@skeletonlabs/skeleton';
-  import Modal from './Modal.svelte'; // Import the custom modal component
+  import { createEventDispatcher } from 'svelte';
+  import { Modal ,getModalStore, initializeStores } from '@skeletonlabs/skeleton';
   import Device from 'svelte-device-info'; // If needed for mobile check\
   import Button from './Button.svelte';
-  // Initialize modal store
-  initializeStores();
-  const modalStore = getModalStore();
 
-  // Defining the ModalComponent type locally
-  interface ModalComponent {
-    ref: typeof Modal;
-  }
-  interface ModalSettings {
-    type: 'component';
-    component: ModalComponent;
-  }
+  
 
-  const modalComponent: ModalComponent = { ref: Modal };
+    let isMobile = false;
+    let showModal = false;
+    const modalStore = getModalStore();
+    export let isOpen = false;
+    export let onClose;
+    let isSubmitting = false;
+    let formStatus = '';
+    let modalRef;
+    const formData = {
+    name: 'Jane Doe',
+    email: 'jane@example.com',
+    message: 'Hello, I need assistance!'
+    };
 
-  const modal: ModalSettings = {
-    type: 'component',
-    component: modalComponent,
-  };
 
-  function openModal() {
-    modalStore.trigger(modal);
-  }
+    const handleSubmit = async () => {
+        isSubmitting = true;
+        formStatus = '';
 
-  let isMobile: boolean = false;
+        try {
+            // Simulate form submission
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            formStatus = 'Message sent successfully!';
+        } catch (error) {
+            formStatus = 'Error sending message. Please try again.';
+        } finally {
+            isSubmitting = false;
+        }
+    };
+
+    function handleClick() {
+      openModal();
+    }
+
+   
+  
+
 
   onMount(() => {
     isMobile = Device.isMobile;
     console.log('Is mobile:', isMobile); // Optional: check device type
   });
 
+
   const modalBtnText = 'Contact Me';
-  const navItems: { id: string; text: string }[] = [
-    { id: 'home', text: 'Home' },
-    { id: 'about', text: 'About' },
-    { id: 'schedule', text: 'Schedule Appointment' }
-  ];
+
+
 </script>
 
 
@@ -48,7 +61,7 @@
   <div class="container mx-auto flex justify-between items-center">
     <div class="text-white">Cameron Roman</div>
 
-    <Button  onClick={openModal} buttonText={modalBtnText} />
+    <Button  on:click={handleClick} buttonText={modalBtnText} />
     
 
     <!-- Mobile Navigation Button -->

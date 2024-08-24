@@ -13,6 +13,8 @@
     "noEmit": true,
     "types": ["svelte"]
   },
+  "extends": "./.svelte-kit/tsconfig.json",
+    
   "include": ["src/**/*.ts", "src/**/*.svelte"],
   "exclude": ["node_modules", "build", ".svelte-kit", "dist"]
 }
