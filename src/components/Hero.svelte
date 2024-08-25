@@ -1,6 +1,5 @@
   <script>
 	  import Button from "./Button.svelte";
-      import Resume from './Resume.svelte';
       import { createEventDispatcher } from "svelte";
 
       const dispatch = createEventDispatcher();
