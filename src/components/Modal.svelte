@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { SvelteComponent } from 'svelte';
+	import { onMount } from 'svelte';
 
 	// Stores
 	import { getModalStore } from '@skeletonlabs/skeleton';
@@ -12,48 +13,76 @@
 
 	// Form Data
 	const formData = {
-		name: 'Jane Doe',
-		tel: '214-555-1234',
-		email: 'jdoe@email.com'
+		name: '',
+		tel: '',
+		email: '',
+		message: ''
 	};
 
 	// We've created a custom submit function to pass the response and close the modal.
 	function onFormSubmit(): void {
 		if ($modalStore[0].response) $modalStore[0].response(formData);
-		modalStore.close();
+		closeModal();
 	}
 
-	// Base Classes
-	const cBase = 'card p-4 w-modal shadow-xl space-y-4';
-	const cHeader = 'text-2xl font-bold';
-	const cForm = 'border border-surface-500 p-4 space-y-4 rounded-container-token';
+	function closeModal(): void {
+    	modalStore.close();
+  }
+
+  function onBackdropClick(event: MouseEvent): void {
+    if (event.target === event.currentTarget) {
+      closeModal();
+    }
+  }
+
+  function onKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  }
+
+
+  // Add this event listener when the component is mounted
+  onMount(() => {
+    window.addEventListener('keydown', onKeyDown);
+
+    // Cleanup the event listener when the component is destroyed
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  });
+
 </script>
 
 <!-- @component This example creates a simple form modal. -->
 
 {#if $modalStore[0]}
-	<div class="modal-example-form {cBase}">
-		<header class={cHeader}>{$modalStore[0].title ?? '(title missing)'}</header>
-		<article>{$modalStore[0].body ?? '(body missing)'}</article>
-		<!-- Enable for debugging: -->
-		<form class="modal-form {cForm}">
-			<label class="label">
-				<span>Name</span>
-				<input class="input" type="text" bind:value={formData.name} placeholder="Enter name..." />
-			</label>
-			<label class="label">
-				<span>Phone Number</span>
-				<input class="input" type="tel" bind:value={formData.tel} placeholder="Enter phone..." />
-			</label>
-			<label class="label">
-				<span>Email</span>
-				<input class="input" type="email" bind:value={formData.email} placeholder="Enter email address..." />
-			</label>
-		</form>
-		<!-- prettier-ignore -->
-		<footer class="modal-footer">
-			<button class="btn btn-neutral" on:click={() => modalStore.close()}>Cancel</button>
-			<button class="btn btn-primary" on:click={onFormSubmit}>Submit</button>
-		</footer>
+	<div class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50 dark:bg-gray-900 dark:bg-opacity-80" on:click={onBackdropClick} on:keydown={onKeyDown} tabindex={0} role="button">
+		<div class="bg-white p-6 shadow-lg max-w-lg w-full rounded-none dark:bg-gray-800 dark:text-gray-200">
+			<header class="text-2xl font-semibold mb-4 dark:text-white">{$modalStore[0].title ?? '(title missing)'}</header>
+			<article class="mb-4 dark:text-gray-300">{$modalStore[0].body ?? '(body missing)'}</article>
+			<form class="space-y-4">
+				<label class="block">
+					<span class="text-sm font-medium dark:text-gray-300">Name</span>
+					<input class="mt-1 block w-full border border-gray-300 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-none" type="text" bind:value={formData.name} placeholder="Enter name..." />
+				</label>
+				<label class="block">
+					<span class="text-sm font-medium dark:text-gray-300">Phone Number</span>
+					<input class="mt-1 block w-full border border-gray-300 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-none" type="tel" bind:value={formData.tel} placeholder="Enter phone..." />
+				</label>
+				<label class="block">
+					<span class="text-sm font-medium dark:text-gray-300">Email</span>
+					<input class="mt-1 block w-full border border-gray-300 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-none" type="email" bind:value={formData.email} placeholder="Enter email address..." />
+				</label>
+				<label class="block">
+					<span class="text-sm font-medium dark:text-gray-300">Message</span>
+					<textarea class="mt-1 block w-full border border-gray-300 p-2 h-32 resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 rounded-none" bind:value={formData.message} placeholder="Enter message here..."></textarea>
+				</label>
+			</form>
+			<footer class="flex justify-end space-x-2 mt-4">
+				<button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 rounded-none" on:click={closeModal}>Cancel</button>
+				<button class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white dark:bg-blue-600 dark:hover:bg-blue-700 rounded-none" on:click={onFormSubmit}>Submit</button>
+			</footer>
+		</div>
 	</div>
 {/if}
