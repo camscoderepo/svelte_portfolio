@@ -3,7 +3,7 @@
   </script>
   
   <button
-    class="px-4 py-2 transition-colors duration-300 bg-gray-200 text-gray-800 rounded"
+    class="px-4 py-2 transition-colors duration-300 bg-gray-200 text-gray-800 rounded-none"
     on:click
     aria-label={buttonText}
   >

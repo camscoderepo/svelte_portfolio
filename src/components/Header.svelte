@@ -18,6 +18,8 @@
       const modal: ModalSettings = {
       type: 'component',
       component: modalComponent,
+      title: 'Contact Me here',
+      body: 'Fill out the form below'
     };
     modalStore.trigger(modal);
     }
