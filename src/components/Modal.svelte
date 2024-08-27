@@ -6,7 +6,7 @@
 
 	// Props
 	/** Exposes parent props to this component. */
-	export let parent: SvelteComponent;
+	
 
 	const modalStore = getModalStore();
 
@@ -51,9 +51,9 @@
 			</label>
 		</form>
 		<!-- prettier-ignore -->
-		<footer class="modal-footer {parent.regionFooter}">
-			<button class="btn {parent.buttonNeutral}" on:click={parent.onClose}>{parent.buttonTextCancel}</button>
-			<button class="btn {parent.buttonPositive}" on:click={onFormSubmit}>{parent.buttonTextSubmit}</button>
+		<footer class="modal-footer">
+			<button class="btn btn-neutral" on:click={() => modalStore.close()}>Cancel</button>
+			<button class="btn btn-primary" on:click={onFormSubmit}>Submit</button>
 		</footer>
 	</div>
 {/if}

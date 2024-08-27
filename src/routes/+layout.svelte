@@ -11,32 +11,10 @@
 
 	initializeStores();
 
-	const modalStore = getModalStore();
-
-	//You can define the parent props here, which will be passed to the modal
-	const parent = {
-		buttonTextCancel: 'Cancel',
-		buttonTextSubmit: 'Submit',
-		onClose: () => modalStore.close(),
-		regionFooter: 'modal-footer=class',
-		buttonNeutral: 'btn-neutral-class',
-		buttonPositive: 'btn-positive-class'
-	};
-
-	function openModal() {
-		modalStore.open({
-	
-			title: 'Contact Form',
-			body:'Fill out the form below:',
-			response: (data) => console.log('Form submitted:', data)
-		})
-	}
-		// Props
-	/** Exposes parent props to this component. */
 </script>
 
 <main>
-	<Header {openModal} />
+	<Header  />
 	<Modal />
 	<!-- Slot for page content -->
 	<slot />
