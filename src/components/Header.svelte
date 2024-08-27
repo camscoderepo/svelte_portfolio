@@ -1,45 +1,29 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
-  import { createEventDispatcher } from 'svelte';
-  import { Modal ,getModalStore, initializeStores } from '@skeletonlabs/skeleton';
   import Device from 'svelte-device-info'; // If needed for mobile check\
   import Button from './Button.svelte';
+  import Modal from './Modal.svelte';
+	import { getModalStore, type ModalComponent, type ModalSettings } from '@skeletonlabs/skeleton';
+
 
   
 
     let isMobile = false;
-    let showModal = false;
+    
     const modalStore = getModalStore();
-    export let isOpen = false;
-    export let onClose;
-    let isSubmitting = false;
-    let formStatus = '';
-    let modalRef;
-    const formData = {
-    name: 'Jane Doe',
-    email: 'jane@example.com',
-    message: 'Hello, I need assistance!'
+
+    const modalComponent: ModalComponent = { ref: Modal };
+
+    function openModal() {
+      const modal: ModalSettings = {
+      type: 'component',
+      component: modalComponent,
     };
-
-
-    const handleSubmit = async () => {
-        isSubmitting = true;
-        formStatus = '';
-
-        try {
-            // Simulate form submission
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            formStatus = 'Message sent successfully!';
-        } catch (error) {
-            formStatus = 'Error sending message. Please try again.';
-        } finally {
-            isSubmitting = false;
-        }
-    };
-
-    function handleClick() {
-      openModal();
+    modalStore.trigger(modal);
     }
+    
+
+
 
    
   
@@ -61,7 +45,7 @@
   <div class="container mx-auto flex justify-between items-center">
     <div class="text-white">Cameron Roman</div>
 
-    <Button  on:click={handleClick} buttonText={modalBtnText} />
+    <Button on:click={openModal} buttonText={modalBtnText} />
     
 
     <!-- Mobile Navigation Button -->
