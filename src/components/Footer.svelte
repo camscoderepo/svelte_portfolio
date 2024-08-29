@@ -5,6 +5,7 @@
     import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
     import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
     import { faHeart } from '@fortawesome/free-solid-svg-icons'; // Import heart icon
+    
   
     export let email = 'cameron.roman@icloud.com';
     export let name = 'Cameron Roman';
