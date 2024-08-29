@@ -13,7 +13,7 @@
       <h2 class="text-3xl font-bold mb-4">About Me</h2>
       <p class="text-lg">
         Hello! I’m Cameron Roman, a freelance web developer with a passion for crafting beautiful and functional websites. My journey through web development has equipped me with experience across a variety of technologies and roles in the industry.
-        Do you have a great idea that you’re eager to bring to life? I’m here to help turn your vision into reality! Click the "Contact Me" button to fill out your details or book a consultation below. Let’s make something amazing together!
+        Do you have a great idea that you’re eager to bring to life? I’m here to help turn your vision into reality! Book a consultation below. Let’s make something amazing together!
       </p>
     </div>
   </div>
