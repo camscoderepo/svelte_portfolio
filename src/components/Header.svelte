@@ -4,7 +4,7 @@
   import Button from './Button.svelte';
   import Modal from './Modal.svelte';
 	import { getModalStore, type ModalComponent, type ModalSettings } from '@skeletonlabs/skeleton';
-
+  import { LightSwitch } from '@skeletonlabs/skeleton';
 
   
 
@@ -47,8 +47,8 @@
   <div class="container mx-auto flex justify-between items-center">
     <div class="text-white">Cameron Roman</div>
 
-    <Button on:click={openModal} buttonText={modalBtnText} />
-    
+    <!-- <Button on:click={openModal} buttonText={modalBtnText} /> -->
+    <LightSwitch />
 
     <!-- Mobile Navigation Button -->
      <!-- {#if isMobile}
