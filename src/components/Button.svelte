@@ -5,7 +5,7 @@
 
 
 
-  <button type="button" class="btn btn-md variant-filled-primary" on:click={onClick}>
+  <button type="button" class="btn btn-md variant-filled-tertiary" on:click={onClick}>
     <slot></slot>
   </button>
   
@@ -17,6 +17,7 @@
   
     button:hover {
       background-color: #e0e0e0;
+      color: black;
     }
   </style>
   
