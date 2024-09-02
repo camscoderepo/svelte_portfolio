@@ -112,8 +112,8 @@
         <!-- Back to Home Button -->
         <div class="text-center mt-6">
             <Button 
-                on:click={handleBackClick} 
-                class="text-white bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg transition duration-200 ease-in-out"
+                onClick={handleBackClick} 
+                class="text-white bg-blue-500 hover:bg-blue-600 px-6 py-2 transition duration-200 ease-in-out"
             >
                 Back to Home
             </Button>

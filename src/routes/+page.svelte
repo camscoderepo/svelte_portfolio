@@ -1,13 +1,14 @@
-<script>
+<script lang="ts">
   import AboutMe from '../components/AboutMe.svelte';
   import Consulting from '../components/Consulting.svelte';
   import Hero from '../components/Hero.svelte';
   import Resume from '../components/Resume.svelte'; // Import your Resume component
 
-  let currentPage = 'home'; // Track the current view
+  let currentPage: string = 'home'; // Initialize with the default page
 
-  const handleNavigation = (event) => {
-    currentPage = event.detail.page; // Update the current page based on the event
+  function handleNavigation(event: CustomEvent) {
+    const { page } = event.detail;
+    currentPage = page; // Update currentPage based on the event detail
   }
 
 </script>
