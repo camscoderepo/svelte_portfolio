@@ -6,9 +6,11 @@
 	import Footer from '../components/Footer.svelte';
 	import Modal from '../components/Modal.svelte';
 	import { onMount, onDestroy } from 'svelte';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	// Stores
 	import { getModalStore, initializeStores  } from '@skeletonlabs/skeleton';
 
+	injectSpeedInsights();
 	initializeStores();
 
 </script>
