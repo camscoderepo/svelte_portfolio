@@ -5,7 +5,7 @@
 
 
 
-  <button type="button" class="btn btn-lg variant-filled-secondary" on:click={onClick}>
+  <button type="button" class="btn btn-md variant-filled-primary" on:click={onClick}>
     <slot></slot>
   </button>
   
