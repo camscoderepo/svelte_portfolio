@@ -1,16 +1,12 @@
 <script lang="ts">
-    export let buttonText: string = '';
-  </script>
+  export let onClick: (event: MouseEvent) => void;
+</script>
   
-  <button
-    class="px-4 py-2 transition-colors duration-300 bg-gray-200 text-gray-800 rounded-none"
-    on:click
-    aria-label={buttonText}
-  >
-    {#if buttonText}
-      {buttonText}
-    {/if}
-    <slot></slot> <!-- Allows for slot content if needed -->
+
+
+
+  <button type="button" class="btn btn-md variant-filled-primary" on:click={onClick}>
+    <slot></slot>
   </button>
   
   <style>
