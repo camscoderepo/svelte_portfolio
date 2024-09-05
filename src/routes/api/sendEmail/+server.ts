@@ -50,8 +50,9 @@ export const POST: RequestHandler = async ({ request }) => {
   });
   const recaptchaData = await recaptchaResponse.json();
 
-  if (!recaptchaData.success) {
-    return json({ error: 'reCAPTCHA verification failed' }, { status: 400 });
+  if (!recaptchaData.success || recaptchaData.score < 0.65) {
+    // Adjust the score threshold based on your needs
+    return json({ error: 'reCAPTCHA verification failed or score too low' }, { status: 400 });
   }
 
   try {

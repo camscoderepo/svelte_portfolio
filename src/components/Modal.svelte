@@ -24,10 +24,10 @@
 		event.preventDefault();
 
 		 // Perform client-side validation
-		 if (!name || !email || !message) {
-      		alert('Name, email and message fields are required!');
-      		return;
-    	}
+		//  if (!name || !email || !message) {
+      	// 	alert('Name, email and message fields are required!');
+      	// 	return;
+    	// }
 		
 		// Execute reCAPTCHA and get token
 		const token = await new Promise<string>((resolve, reject) => {
@@ -109,10 +109,10 @@
 		<div class="bg-white p-6 shadow-lg max-w-lg w-full rounded-none dark:bg-gray-800 dark:text-gray-200">
 			<header class="text-2xl font-semibold mb-4 dark:text-white">{$modalStore[0].title ?? '(title missing)'}</header>
 			<article class="mb-4 dark:text-gray-300">{$modalStore[0].body ?? '(body missing)'}</article>
-			<form class="space-y-4">
+			<form on:submit|preventDefault={onFormSubmit} class="space-y-4">
 				<label class="block">
 					<span class="text-sm font-medium dark:text-gray-300">Name</span>
-					<input class="mt-1 block w-full border border-gray-300 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-none" type="text" bind:value={name} placeholder="Enter name..." />
+					<input class="mt-1 block w-full border border-gray-300 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-none" type="text" bind:value={name} placeholder="Enter name..." required />
 				</label>
 				<label class="block">
 					<span class="text-sm font-medium dark:text-gray-300">Phone Number</span>
@@ -126,11 +126,12 @@
 					<span class="text-sm font-medium dark:text-gray-300">Message</span>
 					<textarea class="mt-1 block w-full border border-gray-300 p-2 h-32 resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 rounded-none" bind:value={message} required placeholder="Enter message here..." ></textarea>
 				</label>
+			
+				<footer class="flex justify-end space-x-2 mt-4">
+					<button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 rounded-none" on:click={closeModal}>Cancel</button>
+					<button class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white dark:bg-blue-600 dark:hover:bg-blue-700 rounded-none" data-sitekey="6LckpDcqAAAAAAHfvG9WgqGdqvHjNht_reTp1Me9" data-callback='onSubmit' data-action='submit' type='submit'>Submit</button>
+				</footer>
 			</form>
-			<footer class="flex justify-end space-x-2 mt-4">
-				<button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200 rounded-none" on:click={closeModal}>Cancel</button>
-				<button class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white dark:bg-blue-600 dark:hover:bg-blue-700 rounded-none" data-sitekey="6LckpDcqAAAAAAHfvG9WgqGdqvHjNht_reTp1Me9" data-callback='onSubmit' data-action='submit'  on:click={onFormSubmit}>Submit</button>
-			</footer>
 		</div>
 	</div>
 {/if}
