@@ -23,12 +23,11 @@
 	async function onFormSubmit(event: Event) {
 		event.preventDefault();
 
-		 // Perform client-side validation
-		//  if (!name || !email || !message) {
-      	// 	alert('Name, email and message fields are required!');
-      	// 	return;
-    	// }
-		
+		name = '';
+		tel = '';
+		email = '';
+		message = '';
+
 		// Execute reCAPTCHA and get token
 		const token = await new Promise<string>((resolve, reject) => {
 			grecaptcha.enterprise.ready(() => {
@@ -74,6 +73,10 @@
 	
 
 	function closeModal(): void {
+		name = '';
+		tel = '';
+		email = '';
+		message = '';
     	modalStore.close();
   }
 
