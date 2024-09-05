@@ -46,9 +46,9 @@
 <nav class="bg-gray-100 dark:bg-gray-800 p-4 z-20 fixed top-0 left-0 right-0">
   <div class="container mx-auto flex justify-between items-center">
     <div class="text-gray-800 dark:text-white">Cameron Roman</div>
-
-    <!-- <Button on:click={openModal} buttonText={modalBtnText} /> -->
     <LightSwitch />
+    <Button onClick={openModal}>Contact Me</Button>
+    
 
     <!-- Mobile Navigation Button -->
      <!-- {#if isMobile}
