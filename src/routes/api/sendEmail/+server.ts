@@ -6,7 +6,7 @@ const client = new SESClient({
   region: import.meta.env.VITE_AWS_REGION,
   credentials: {
     accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID,
-    secretAccessKey:import.meta.env.VITE_AWS_SECRET_ACCESS_KEY
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
   },
 });
 
@@ -42,7 +42,8 @@ export const POST: RequestHandler = async ({ request }) => {
   const { to, subject, body, token } = await request.json();
 
   // Verify reCAPTCHA token
-  const recaptchaSecret = import.meta.env.VITE_RECAPTCHA_SECRET_KEY;
+  const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+  
   const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${token}`;
 
   const recaptchaResponse = await fetch(verificationUrl, {

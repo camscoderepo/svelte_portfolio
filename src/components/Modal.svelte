@@ -23,10 +23,10 @@
 	async function onFormSubmit(event: Event) {
 		event.preventDefault();
 
-		name = '';
-		tel = '';
-		email = '';
-		message = '';
+		// name = '';
+		// tel = '';
+		// email = '';
+		// message = '';
 
 		// Execute reCAPTCHA and get token
 		const token = await new Promise<string>((resolve, reject) => {
