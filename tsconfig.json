@@ -15,6 +15,6 @@
   },
   "extends": "./.svelte-kit/tsconfig.json",
     
-  "include": ["src/**/*.ts", "src/**/*.svelte"],
+  "include": ["src/**/*.ts", "src/**/*.svelte", "types/**/*.d.ts"],
   "exclude": ["node_modules", "build", ".svelte-kit", "dist"]
 }

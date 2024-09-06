@@ -18,6 +18,7 @@
 		"@sveltejs/vite-plugin-svelte": "^3.1.1",
 		"@tailwindcss/typography": "^0.5.13",
 		"@types/eslint": "^8.56.7",
+		"@types/recaptcha": "^0.0.27",
 		"@typescript-eslint/eslint-plugin": "^8.2.0",
 		"@typescript-eslint/parser": "^8.2.0",
 		"autoprefixer": "^10.4.19",
@@ -37,13 +38,15 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@aws-sdk/client-ses": "^3.645.0",
 		"@fortawesome/fontawesome-svg-core": "^6.6.0",
 		"@fortawesome/free-brands-svg-icons": "^6.6.0",
 		"@fortawesome/free-solid-svg-icons": "^6.6.0",
 		"@fortawesome/svelte-fontawesome": "^0.2.2",
 		"@skeletonlabs/skeleton": "^2.10.2",
+		"@types/aws-sdk": "^2.7.0",
 		"@vercel/speed-insights": "^1.0.12",
-		"aws-sdk": "^2.1685.0",
+		"aws-sdk": "^2.1689.0",
 		"svelte-device-info": "^1.0.5"
 	}
 }

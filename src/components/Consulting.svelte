@@ -1,16 +1,16 @@
 <section id="schedule" class="bg-gray-300 dark:bg-gray-700 py-12">
     <div class="container mx-auto px-4">
       <!-- Section Title -->
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">Schedule a Consultation</h2>
+      <h2 class="text-3xl font-bold  mb-4 text-center">Schedule a Consultation</h2>
       
       <!-- Section Description -->
-      <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 text-center">
+      <p class="text-lg mb-8 text-center">
         Ready to take your project to the next level? Book a 30-minute consultation with me to discuss your goals, ask questions, and receive personalized advice.
       </p>
       
       <!-- Calendly Widget -->
       <div class="mb-8">
-        <p class="text-lg text-gray-700 dark:text-gray-300 mb-4 text-center">Choose a time slot that works for you:</p>
+        <p class="text-lg mb-4 text-center">Choose a time slot that works for you:</p>
         <div class="w-full flex justify-center">
           <iframe src="https://calendly.com/cameron-roman/30min?embed_domain=yourdomain.com&embed_type=inline" 
                   title="Schedule a 30 minute call with Cameron!"
