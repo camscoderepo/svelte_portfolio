@@ -13,6 +13,8 @@
     button {
       border: none;
       cursor: pointer;
+      background-color: #6B00B8;
+      color: #FFFFFF;
     }
   
     button:hover {
