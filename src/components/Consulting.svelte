@@ -1,3 +1,12 @@
+<script>
+   export let embedUrl = "https://calendly.com/cameron-roman/30min?embed_domain=yourdomain.com&embed_type=inline";
+    let isLoaded = false;
+
+    function loadCalendly() {
+        isLoaded = true;
+    }
+</script>
+
 <section id="schedule" class="bg-gray-300 dark:bg-gray-700 py-12">
     <div class="container mx-auto px-4">
       <!-- Section Title -->
@@ -9,18 +18,17 @@
       </p>
       
       <!-- Calendly Widget -->
-      <div class="mb-8">
-        <p class="text-lg mb-4 text-center">Choose a time slot that works for you:</p>
-        <div class="w-full flex justify-center">
-          <iframe src="https://calendly.com/cameron-roman/30min?embed_domain=yourdomain.com&embed_type=inline" 
+      <button on:click={loadCalendly} class="btn">Schedule a 30-Minute Call</button>
+
+      {#if isLoaded}
+          <iframe src={embedUrl} 
                   title="Schedule a 30 minute call with Cameron!"
                   width="100%" 
                   height="800" 
                   frameborder="0" 
                   class="rounded-lg shadow-lg custom-margin">
-                  
           </iframe>
-        </div>
+      {/if}
       </div>      
       <!-- Testimonials -->
       <!-- <div class="text-center">

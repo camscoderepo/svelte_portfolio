@@ -24,12 +24,15 @@
     <div class="flex items-center">
         <a href="mailto:{email}" class="text-white mx-2">
             <FontAwesomeIcon icon={faEnvelope} />
+            <span class="sr-only">Email</span> <!-- Screen reader only text -->
         </a>
         <a href="https://github.com/camscoderepo" target="_blank" rel="noopener noreferrer" class="text-white mx-2">
             <FontAwesomeIcon icon={faGithub} />
+            <span class="sr-only">GitHub Profile</span> <!-- Screen reader only text -->
         </a>
         <a href="https://www.linkedin.com/in/cameron-roman-653865183/" target="_blank" rel="noopener noreferrer" class="text-white mx-2">
             <FontAwesomeIcon icon={faLinkedin} />
+            <span class="sr-only">LinkedIn Profile</span> <!-- Screen reader only text -->
         </a>
     </div>
 </footer>

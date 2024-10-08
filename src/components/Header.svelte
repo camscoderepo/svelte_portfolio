@@ -48,24 +48,7 @@
     <div class="text-gray-800 dark:text-white">Cameron Roman</div>
     <LightSwitch />
     <Button onClick={openModal}>Contact Me</Button>
-    
-
-    <!-- Mobile Navigation Button -->
-     <!-- {#if isMobile}
-      <Button on:click={toggleNav} class="nav-items show md:hidden text-white">
-        <i class="fas fa-bars"></i>
-      </Button>
-    {/if} -->
   </div>
-
-  <!-- Mobile Navigation Menu -->
-  <!-- {#if isNavOpen && isMobile}
-    <ul class="nav-items show md:hidden space-y-2">
-      {#each navItems as item}
-        <li><a href={`#${item.id}`} class="text-white hover:underline">{item.text}</a></li>
-      {/each}
-    </ul>
-  {/if} -->
 </nav>
 
 <style>
