@@ -1,4 +1,5 @@
 <script>
+  import Button from '../components/Button.svelte'  
    export let embedUrl = "https://calendly.com/cameron-roman/30min?embed_domain=yourdomain.com&embed_type=inline";
     let isLoaded = false;
 
@@ -18,8 +19,9 @@
       </p>
       
       <!-- Calendly Widget -->
-      <button on:click={loadCalendly} class="btn">Schedule a 30-Minute Call</button>
-
+      <div class="flex justify-center items-center">
+        <Button onClick={loadCalendly}>Schedule a 30-Minute Call</Button>
+      </div>  
       {#if isLoaded}
           <iframe src={embedUrl} 
                   title="Schedule a 30 minute call with Cameron!"
