@@ -7,5 +7,5 @@ interface ReCaptcha {
     };
   }
   
-  declare const grecaptcha: ReCaptcha;
+  declare const hcaptcha: ReCaptcha;
   

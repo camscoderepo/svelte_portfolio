@@ -30,8 +30,8 @@
 
 		// Execute reCAPTCHA and get token
 		const token = await new Promise<string>((resolve, reject) => {
-			grecaptcha.enterprise.ready(() => {
-				grecaptcha.enterprise.execute('6LckpDcqAAAAAAHfvG9WgqGdqvHjNht_reTp1Me9', { action: 'submit' })
+			hcaptcha.enterprise.ready(() => {
+				hcaptcha.enterprise.execute('6LckpDcqAAAAAAHfvG9WgqGdqvHjNht_reTp1Me9', { action: 'submit' })
 					.then((token: string) => resolve(token))
 					.catch(reject);
 			})
