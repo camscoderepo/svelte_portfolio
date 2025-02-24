@@ -21,7 +21,7 @@
             <FontAwesomeIcon icon={faHeart} />
         </div>
     </div>
-    <div class="flex items-center pl-[40px]">
+    <div class="flex items-center pl-[50px]">
         <a href="mailto:{email}" class="text-white mx-2">
             <FontAwesomeIcon icon={faEnvelope} />
             <span class="sr-only">Email</span> <!-- Screen reader only text -->
