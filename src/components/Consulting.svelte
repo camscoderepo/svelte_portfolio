@@ -50,9 +50,9 @@
   </section>
   <style>
     @media (max-width: 1024px) and (min-width: 769px) {
-    iframe{
-      height: 800px;
-    }
+      iframe{
+        height: 800px;
+      }
   }
     @media (max-width: 768px) {
       iframe {
