@@ -47,7 +47,7 @@
   <div class="container mx-auto flex justify-between items-center">
     <div class="text-gray-800 dark:text-white">Cameron Roman</div>
     <LightSwitch />
-    <Button onClick={openModal}>Contact Me</Button>
+    <!-- <Button onClick={openModal}>Contact Me</Button> -->
   </div>
 </nav>
 
