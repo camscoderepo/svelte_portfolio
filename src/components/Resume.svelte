@@ -45,7 +45,7 @@
         <section class="mb-6">
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Summary</h2>
             <p class="text-gray-800 dark:text-gray-300">
-                Dynamic software engineering professional with mid-level expertise in Web Development, Back End Development, and JavaScript. 
+                Dynamic software engineering professional with Senior-level expertise in Web Development, Back End Development, and JavaScript. 
                 Demonstrated success in managing and delivering complex technical projects, driving the development and implementation of diverse websites and business applications. 
                 Skilled in creating bespoke software solutions to meet client-specific needs and enhance operational efficiency.
             </p>
