@@ -13,6 +13,7 @@
 
 	injectSpeedInsights();
 	initializeStores();
+	injectAnalytics();
 
 </script>
 
@@ -21,7 +22,7 @@
 	<Modal />
 	<!-- Slot for page content -->
 	<slot />
-	injectAnalytics();
+	
 	<!-- Footer with props -->
 	<Footer email="cameron.roman@icloud.com" name="Cameron Roman" />
 </main>
