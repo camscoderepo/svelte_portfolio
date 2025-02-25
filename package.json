@@ -45,6 +45,7 @@
 		"@fortawesome/svelte-fontawesome": "^0.2.2",
 		"@skeletonlabs/skeleton": "^2.10.2",
 		"@types/aws-sdk": "^2.7.0",
+		"@vercel/analytics": "^1.5.0",
 		"@vercel/speed-insights": "^1.0.12",
 		"aws-sdk": "^2.1689.0",
 		"svelte-device-info": "^1.0.5"

@@ -6,6 +6,7 @@
 	import Footer from '../components/Footer.svelte';
 	import Modal from '../components/Modal.svelte';
 	import { onMount, onDestroy } from 'svelte';
+	import { Analytics } from '@vercel/analytics/sveltekit'
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	// Stores
 	import { getModalStore, initializeStores  } from '@skeletonlabs/skeleton';
@@ -20,9 +21,7 @@
 	<Modal />
 	<!-- Slot for page content -->
 	<slot />
-
-
-
+	<Analytics />
 	<!-- Footer with props -->
 	<Footer email="cameron.roman@icloud.com" name="Cameron Roman" />
 </main>
