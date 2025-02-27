@@ -30,12 +30,12 @@
   <source src="{coding}" type="video/mp4" />
   Your browser does not support the video tag.
   </video> -->
-  <div id="home" class="flex flex-col items-center justify-center min-h-[95vh] p-16 text-center bg-background">
-    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
+  <div id="home" class="flex flex-col items-center justify-center min-h-[95vh] p-16 text-center bg-gradient-to-r from-orange-500 to-purple-500">
+    <!-- <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
       <source src="/../src/lib/assets/coding.mp4" type="video/mp4">
-    </video>
-      <h1 class="sm:text-2xl">{title}</h1>
-      <p class="text-xl mb-4 md:text-lg sm:text-base">{subtitle}</p>
+    </video> -->
+      <h1 class="sm:text-2xl text-white">{title}</h1>
+      <p class="text-xl mb-4 md:text-lg sm:text-base text-white">{subtitle}</p>
       <Button  onClick={handleHeroButtonClick}>Resume</Button>
   </div>
 <!-- </section> -->
