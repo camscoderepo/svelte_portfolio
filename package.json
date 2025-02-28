@@ -8,7 +8,8 @@
 		"preview": "vite preview",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"host": "vite"
+		"host": "vite",
+		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
 		"@skeletonlabs/tw-plugin": "^0.4.0",
